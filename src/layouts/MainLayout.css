@@ -1,0 +1,10 @@
+.ga-layout {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.ga-main {
+  flex: 1;
+  padding-top: 0;
+}

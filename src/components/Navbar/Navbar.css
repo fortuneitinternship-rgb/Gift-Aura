@@ -1,0 +1,144 @@
+.ga-navbar {
+  background: var(--color-surface);
+  box-shadow: var(--shadow-sm);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+.ga-navbar-top {
+  background: var(--color-primary);
+  color: #fff;
+  font-size: 14px;
+  padding: 8px 0;
+}
+
+.ga-navbar-top-inner {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.ga-navbar-top-links a {
+  color: #fff;
+  margin-left: 16px;
+  font-size: 14px;
+}
+
+.ga-navbar-main {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  height: 80px;
+}
+
+.ga-logo {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-family: var(--font-heading);
+  font-size: 24px;
+  font-weight: 700;
+  color: var(--color-primary);
+}
+
+.ga-logo i {
+  font-size: 28px;
+}
+
+.ga-nav-links {
+  display: flex;
+  list-style: none;
+  gap: 24px;
+  margin: 0;
+  padding: 0;
+}
+
+.ga-nav-links a {
+  color: var(--color-text);
+  font-weight: 500;
+  font-size: 16px;
+  padding: 8px 0;
+  position: relative;
+}
+
+.ga-nav-links a.active,
+.ga-nav-links a:hover {
+  color: var(--color-primary);
+}
+
+.ga-nav-links a.active::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: var(--color-primary);
+  border-radius: 2px;
+}
+
+.ga-search {
+  flex: 1;
+  max-width: 400px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: var(--color-bg);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-pill);
+  padding: 8px 16px;
+  margin-left: auto;
+}
+
+.ga-search i {
+  color: var(--color-text-muted);
+}
+
+.ga-search input {
+  flex: 1;
+  border: none;
+  outline: none;
+  background: transparent;
+  font-size: 14px;
+}
+
+.ga-nav-actions {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.ga-icon-btn {
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  color: var(--color-text);
+  font-size: 20px;
+  position: relative;
+  transition: all 0.2s ease;
+}
+
+.ga-icon-btn:hover {
+  background: var(--color-primary-light);
+  color: var(--color-primary);
+}
+
+.ga-cart-count {
+  position: absolute;
+  top: 0;
+  right: 0;
+  background: var(--color-secondary);
+  color: #fff;
+  font-size: 10px;
+  font-weight: 600;
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
