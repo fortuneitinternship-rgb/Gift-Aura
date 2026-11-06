@@ -1,0 +1,65 @@
+.ga-card {
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-sm);
+  overflow: hidden;
+  transition: all var(--transition-base);
+}
+
+.ga-card-hover:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-lg);
+  border-color: var(--color-primary-light);
+}
+
+/* Padding */
+.ga-card-pad-sm { padding: 16px; }
+.ga-card-pad-md { padding: 24px; }
+.ga-card-pad-lg { padding: 32px; }
+.ga-card-pad-none { padding: 0; }
+
+/* Variants */
+.ga-card-default {background: white;}
+.ga-card-outline {
+  background: transparent;
+  box-shadow: none;
+}
+.ga-card-elevated {
+  border: none;
+  box-shadow: var(--shadow-md);
+}
+.ga-card-flat {
+  border: none;
+  box-shadow: none;
+  background: var(--color-bg);
+}
+
+/* Header */
+.ga-card-header {
+  margin-bottom: 16px;
+}
+
+.ga-card-title {
+  font-family: var(--font-heading);
+  font-size: 20px;
+  font-weight: 600;
+  margin-bottom: 4px;
+}
+
+.ga-card-subtitle {
+  color: var(--color-text-secondary);
+  font-size: 14px;
+}
+
+/* Body */
+.ga-card-body {
+  color: var(--color-text);
+}
+
+/* Footer */
+.ga-card-footer {
+  margin-top: 16px;
+  padding-top: 16px;
+  border-top: 1px solid var(--color-border);
+}

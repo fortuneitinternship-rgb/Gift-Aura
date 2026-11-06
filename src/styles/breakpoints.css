@@ -1,0 +1,45 @@
+/* ===== GIFT AURA RESPONSIVE BREAKPOINTS ===== */
+
+/* Extra Small – Mobile < 576px */
+@media (max-width: 575px) {
+  .hide-xs { display: none !important; }
+  .show-xs { display: block !important; }
+}
+
+/* Small – ≥ 576px */
+@media (min-width: 576px) {
+  .hide-sm { display: none !important; }
+}
+
+/* Medium – ≥ 768px (Tablet) */
+@media (min-width: 768px) {
+  .hide-md { display: none !important; }
+}
+
+/* Large – ≥ 992px (Desktop) */
+@media (min-width: 992px) {
+  .hide-lg { display: none !important; }
+}
+
+/* Extra Large – ≥ 1200px */
+@media (min-width: 1200px) {
+  .hide-xl { display: none !important; }
+}
+
+/* ===== COMMON RESPONSIVE UTILITIES ===== */
+@media (max-width: 991px) {
+  .grid-4 { grid-template-columns: repeat(2, 1fr); }
+  .flex-row-tablet { flex-direction: column; }
+}
+
+@media (max-width: 767px) {
+  .grid-4, .grid-3 { grid-template-columns: 1fr; }
+  .grid-2 { grid-template-columns: 1fr; }
+  .section-title { font-size: 24px; }
+  .section-subtitle { font-size: 14px; margin-bottom: 24px; }
+}
+
+@media (max-width: 575px) {
+  .btn-mobile-full { width: 100%; }
+  .text-mobile-center { text-align: center; }
+}
