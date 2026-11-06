@@ -12,6 +12,10 @@ function Home() {
     setTimeout(() => setLoading(false), 2000)
   }
 
+
+
+
+  
   if (loading) {
     return <Loader text="Loading Gift Aura..." fullScreen />
   }
