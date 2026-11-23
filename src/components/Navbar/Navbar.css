@@ -1,42 +1,132 @@
-/* ===== DROPDOWN ===== */
+/* ============ BASE ============ */
+.ga-header {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  width: 100%;
+  background: #fff;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.06);
+}
+
+.container-app {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+/* ============ TOP BAR ============ */
+.ga-topbar {
+  background: #2d2d2d;
+  color: #f5f5f5;
+  font-size: 13px;
+  padding: 8px 0;
+}
+
+.ga-topbar-inner {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+.ga-topbar-inner i {
+  margin-right: 6px;
+  color: #f4b400;
+}
+
+.ga-topbar-links {
+  display: flex;
+  gap: 20px;
+}
+
+.ga-topbar-links a {
+  color: #f5f5f5;
+  text-decoration: none;
+  transition: color 0.2s;
+}
+
+.ga-topbar-links a:hover {
+  color: #f4b400;
+}
+
+/* ============ MAIN NAVBAR ============ */
+.ga-navbar {
+  background: #fff;
+  padding: 12px 0;
+}
+
+.ga-navbar-inner {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+}
+
+/* Logo */
+.ga-logo {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 22px;
+  font-weight: 700;
+  color: #8e44ad;
+  text-decoration: none;
+  white-space: nowrap;
+}
+
+.ga-logo i {
+  font-size: 26px;
+}
+
+/* Nav links */
+.ga-nav-links {
+  display: flex;
+  align-items: center;
+  gap: 22px;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.ga-nav-links a,
+.ga-dropdown-toggle {
+  color: #333;
+  text-decoration: none;
+  font-size: 15px;
+  font-weight: 500;
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-family: inherit;
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  transition: color 0.2s;
+}
+
+.ga-nav-links a:hover,
+.ga-nav-links a.active,
+.ga-dropdown-toggle:hover {
+  color: #8e44ad;
+}
+
+/* Dropdown */
 .ga-dropdown {
   position: relative;
 }
 
-.ga-dropdown-toggle {
-  display: flex;
-  align-items: center;
-  gap: 4px;
-  color: var(--color-text);
-  font-weight: 500;
-  font-size: 15px;
-  padding: 8px 0;
-  background: transparent;
-  transition: color 0.2s ease;
-}
-
-.ga-dropdown-toggle:hover {
-  color: var(--color-primary);
-}
-
 .ga-dropdown-menu {
   position: absolute;
-  top: calc(100% + 8px);
+  top: calc(100% + 12px);
   left: 0;
-  min-width: 240px;
-  background: var(--color-surface);
-  border: 1px solid var(--color-border);
-  border-radius: var(--radius-lg);
-  box-shadow: var(--shadow-lg);
+  min-width: 260px;
+  background: #fff;
+  border-radius: 10px;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.12);
   padding: 8px;
   list-style: none;
+  margin: 0;
   z-index: 100;
-  animation: ga-fade-down 0.2s ease;
-}
-
-@keyframes ga-fade-down {
-  from { opacity: 0; transform: translateY(-6px); }
-  to { opacity: 1; transform: translateY(0); }
 }
 
 .ga-dropdown-menu li a {
@@ -44,48 +134,158 @@
   align-items: center;
   gap: 10px;
   padding: 10px 12px;
-  border-radius: var(--radius-md);
-  color: var(--color-text);
+  border-radius: 8px;
   font-size: 14px;
-  transition: background 0.15s ease;
+  color: #333;
 }
 
 .ga-dropdown-menu li a:hover {
-  background: var(--color-primary-light);
-  color: var(--color-primary);
-}
-
-.ga-dropdown-menu li a i {
-  font-size: 16px;
+  background: #f7f0fb;
 }
 
 .ga-dropdown-count {
   margin-left: auto;
   font-size: 12px;
-  color: var(--color-text-muted);
-  background: var(--color-bg);
+  background: #f0e6f6;
+  color: #8e44ad;
   padding: 2px 8px;
-  border-radius: var(--radius-pill);
+  border-radius: 20px;
 }
 
-/* Mobile dropdown */
-@media (max-width: 991px) {
-  .ga-dropdown {
-    width: 100%;
+/* Search */
+.ga-search {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: #f4f4f4;
+  border-radius: 30px;
+  padding: 8px 16px;
+  flex: 1;
+  max-width: 320px;
+  margin-left: auto;
+}
+
+.ga-search i {
+  color: #888;
+}
+
+.ga-search input {
+  border: none;
+  outline: none;
+  background: transparent;
+  font-size: 14px;
+  width: 100%;
+  font-family: inherit;
+}
+
+/* Action icons */
+.ga-nav-actions {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.ga-icon-btn {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  color: #333;
+  font-size: 19px;
+  text-decoration: none;
+  transition: background 0.2s, color 0.2s;
+}
+
+.ga-icon-btn:hover {
+  background: #f7f0fb;
+  color: #8e44ad;
+}
+
+.ga-cart-count {
+  position: absolute;
+  top: 2px;
+  right: 2px;
+  background: #e74c3c;
+  color: #fff;
+  font-size: 11px;
+  font-weight: 600;
+  min-width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 4px;
+}
+
+/* Hamburger — hidden on desktop */
+.ga-hamburger {
+  display: none;
+  background: none;
+  border: none;
+  font-size: 22px;
+  color: #333;
+  cursor: pointer;
+  width: 42px;
+  height: 42px;
+}
+
+/* ============ RESPONSIVE ============ */
+@media (max-width: 992px) {
+  .ga-search {
+    display: none;
+  }
+}
+
+@media (max-width: 768px) {
+  .ga-hamburger {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
   }
 
-  .ga-dropdown-toggle {
+  .ga-nav-links {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0;
+    background: #fff;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+    padding: 12px 20px;
+    display: none;
+  }
+
+  .ga-nav-links.open {
+    display: flex;
+  }
+
+  .ga-nav-links li {
     width: 100%;
-    justify-content: space-between;
-    padding: 10px 0;
+    border-bottom: 1px solid #f0f0f0;
+  }
+
+  .ga-nav-links a,
+  .ga-dropdown-toggle {
+    display: block;
+    width: 100%;
+    padding: 12px 0;
   }
 
   .ga-dropdown-menu {
     position: static;
     box-shadow: none;
-    border: none;
-    background: var(--color-bg);
-    margin-top: 8px;
+    padding: 0 0 0 16px;
     min-width: 100%;
+  }
+
+  .ga-topbar-inner {
+    justify-content: center;
+    text-align: center;
   }
 }
