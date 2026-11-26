@@ -1,0 +1,56 @@
+.filter-toggle {
+  display: none;
+  width: 100%;
+  background: #ff6f61;
+  color: #fff;
+  border: none;
+  padding: 10px;
+  border-radius: 8px;
+  margin-bottom: 12px;
+  font-weight: 600;
+}
+.filter-sidebar {
+  background: #fff;
+  border: 1px solid #eee;
+  border-radius: 10px;
+  padding: 18px;
+  position: sticky;
+  top: 20px;
+  align-self: start;
+}
+.filter-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 12px;
+}
+.clear-filters {
+  background: none;
+  border: none;
+  color: #e63946;
+  font-size: 0.82rem;
+  cursor: pointer;
+  text-decoration: underline;
+}
+.filter-group { margin-bottom: 20px; }
+.filter-group h6 { margin-bottom: 8px; font-weight: 600; }
+.filter-option {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.88rem;
+  margin-bottom: 6px;
+  cursor: pointer;
+}
+.filter-option input { accent-color: #ff6f61; }
+.price-label { font-size: 0.85rem; color: #666; margin-top: 6px; }
+
+@media (max-width: 768px) {
+  .filter-toggle { display: block; }
+  .filter-sidebar {
+    display: none;
+    position: static;
+    margin-bottom: 20px;
+  }
+  .filter-sidebar.open { display: block; }
+}

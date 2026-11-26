@@ -1,84 +1,74 @@
-import React from 'react'
-import { Link } from 'react-router-dom'
-import './Footer.css'
+import React from "react";
+import { Link } from "react-router-dom";
+import "./Footer.css";
 
-function Footer() {
+const Footer = () => {
   return (
-    <footer className="ga-footer">
-      <div className="container-app">
-        <div className="ga-footer-grid">
-          {/* Brand / About */}
-          <div className="ga-footer-col">
-            <Link to="/" className="ga-footer-logo">
-              <i className="bi bi-gift-fill"></i>
-              <span>Gift Aura</span>
-            </Link>
-            <p>
-              Making every moment memorable with the perfect gift.
-              Curated collections, fast delivery, and secure shopping.
-            </p>
-            <div className="ga-footer-social">
-              <a href="#" aria-label="Facebook"><i className="bi bi-facebook"></i></a>
-              <a href="#" aria-label="Instagram"><i className="bi bi-instagram"></i></a>
-              <a href="#" aria-label="Twitter"><i className="bi bi-twitter-x"></i></a>
-              <a href="#" aria-label="YouTube"><i className="bi bi-youtube"></i></a>
-            </div>
-          </div>
-
-          {/* Quick Links */}
-          <div className="ga-footer-col">
-            <h4>Quick Links</h4>
-            <ul>
-              <li><Link to="/">Home</Link></li>
-              <li><Link to="/products">Shop</Link></li>
-              <li><Link to="/about">About Us</Link></li>
-              <li><Link to="/contact">Contact</Link></li>
-            </ul>
-          </div>
-
-          {/* Customer Service */}
-          <div className="ga-footer-col">
-            <h4>Customer Service</h4>
-            <ul>
-              <li><Link to="/faq">FAQ</Link></li>
-              <li><Link to="/privacy">Privacy Policy</Link></li>
-              <li><Link to="/terms">Terms & Conditions</Link></li>
-              <li><Link to="/orders">Track Order</Link></li>
-            </ul>
-          </div>
-
-          {/* Contact */}
-          <div className="ga-footer-col">
-            <h4>Contact Us</h4>
-            <ul className="ga-footer-contact">
-              <li><i className="bi bi-geo-alt"></i> 123 Gift Street, Bengaluru</li>
-              <li><i className="bi bi-telephone"></i> +91 98765 43210</li>
-              <li><i className="bi bi-envelope"></i> hello@giftaura.com</li>
-              <li><i className="bi bi-clock"></i> Mon–Sat, 9 AM – 8 PM</li>
-            </ul>
+    <footer className="footer">
+      <div className="footer-container">
+        {/* Brand */}
+        <div className="footer-col brand-col">
+          <h2 className="footer-logo">Gift Aura</h2>
+          <p className="footer-desc">
+            Curated, personalized gifts to make every moment memorable. Spread
+            joy with Gift Aura.
+          </p>
+          <div className="social-icons">
+            <a href="https://facebook.com" aria-label="Facebook" target="_blank" rel="noreferrer">📘</a>
+            <a href="https://instagram.com" aria-label="Instagram" target="_blank" rel="noreferrer">📸</a>
+            <a href="https://twitter.com" aria-label="Twitter" target="_blank" rel="noreferrer">🐦</a>
+            <a href="https://youtube.com" aria-label="YouTube" target="_blank" rel="noreferrer">▶️</a>
           </div>
         </div>
 
-        {/* Newsletter */}
-        <div className="ga-footer-newsletter">
-          <div>
-            <h4>Get exclusive gift offers 💌</h4>
-            <p>Subscribe to our newsletter for the latest deals.</p>
-          </div>
-          <form className="ga-footer-form" onSubmit={(e) => e.preventDefault()}>
-            <input type="email" placeholder="Enter your email" />
-            <button type="submit">Subscribe</button>
-          </form>
+        {/* Quick Links */}
+        <div className="footer-col">
+          <h4>Quick Links</h4>
+          <ul>
+            <li><Link to="/">Home</Link></li>
+            <li><Link to="/shop">Shop</Link></li>
+            <li><Link to="/about">About Us</Link></li>
+            <li><Link to="/contact">Contact</Link></li>
+          </ul>
         </div>
 
-        {/* Bottom */}
-        <div className="ga-footer-bottom">
-          <p>© 2025 Gift Aura. All rights reserved.</p>
-          <p>Made with 💜 by SamaShivarani</p>
+        {/* Categories */}
+        <div className="footer-col">
+          <h4>Categories</h4>
+          <ul>
+            <li><Link to="/category/home-decor">Home Decor</Link></li>
+            <li><Link to="/category/gift-hampers">Gift Hampers</Link></li>
+            <li><Link to="/category/personalized-gifts">Personalized Gifts</Link></li>
+            <li><Link to="/category/flowers">Flowers</Link></li>
+            <li><Link to="/category/accessories">Accessories</Link></li>
+          </ul>
+        </div>
+
+        {/* Customer Support */}
+        <div className="footer-col">
+          <h4>Customer Support</h4>
+          <ul>
+            <li><Link to="/faq">FAQ</Link></li>
+            <li><Link to="/shipping">Shipping & Returns</Link></li>
+            <li><Link to="/privacy">Privacy Policy</Link></li>
+            <li><Link to="/terms">Terms & Conditions</Link></li>
+          </ul>
+        </div>
+
+        {/* Contact */}
+        <div className="footer-col">
+          <h4>Contact Us</h4>
+          <p>📍 123 Gift Street, Delhi, India</p>
+          <p>📞 +91 98765 43210</p>
+          <p>✉️ support@giftaura.com</p>
         </div>
       </div>
-    </footer>
-  )
-}
 
-export default Footer
+      <div className="footer-bottom">
+        <p>© {new Date().getFullYear()} Gift Aura. All rights reserved.</p>
+      </div>
+    </footer>
+  );
+};
+
+export default Footer;
