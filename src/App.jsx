@@ -3,7 +3,7 @@ import React from "react";
 import { BrowserRouter, Routes, Route, Link } from "react-router-dom";
 import "bootstrap/dist/css/bootstrap.min.css";
 
-import Footer from "./components/Footer";
+import Footer from "./components/Footer/";
 import SearchBar from "./components/SearchBar";
 import SearchResults from "./pages/SearchResults";
 import ProductListing from "./pages/ProductListing";
