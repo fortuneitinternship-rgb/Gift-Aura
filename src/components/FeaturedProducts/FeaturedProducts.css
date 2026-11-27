@@ -1,32 +1,9 @@
-.ga-featured {
-  padding: 64px 32px;
-}
-
-.ga-product-grid {
+.products-grid {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 24px;
+  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+  gap: var(--sp-6);
 }
 
-@media (max-width: 1199px) {
-  .ga-product-grid {
-    grid-template-columns: repeat(3, 1fr);
-  }
-}
-
-@media (max-width: 767px) {
-  .ga-product-grid {
-    grid-template-columns: repeat(2, 1fr);
-    gap: 16px;
-  }
-}
-
-@media (max-width: 575px) {
-  .ga-featured {
-    padding: 48px 16px;
-  }
-
-  .ga-product-grid {
-    grid-template-columns: 1fr;
-  }
+@media (max-width: 480px) {
+  .products-grid { grid-template-columns: repeat(2, 1fr); gap: var(--sp-3); }
 }

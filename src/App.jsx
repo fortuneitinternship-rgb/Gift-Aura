@@ -1,18 +1,24 @@
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import { CartProvider } from './context/CartContext';
+import { WishlistProvider } from './context/WishlistContext';
+import { AuthProvider } from './context/AuthContext';
+import MainLayout from './layouts/MainLayout';
+import AppRoutes from './routes/AppRoutes';
 
-import React from "react";
-import { BrowserRouter } from "react-router-dom";
-
-import AppRoutes from "./routes/AppRoutes";
-
-import "bootstrap/dist/css/bootstrap.min.css";
-import "bootstrap-icons/font/bootstrap-icons.css";
-
-function App() {
-  return (
-    <BrowserRouter>
-      <AppRoutes />
-    </BrowserRouter>
-  );
-}
+const App = () => (
+  <BrowserRouter>
+    <AuthProvider>
+      <CartProvider>
+        <WishlistProvider>
+          <Routes>
+            <Route element={<MainLayout />}>
+              <Route path="/*" element={<AppRoutes />} />
+            </Route>
+          </Routes>
+        </WishlistProvider>
+      </CartProvider>
+    </AuthProvider>
+  </BrowserRouter>
+);
 
 export default App;

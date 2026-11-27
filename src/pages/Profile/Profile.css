@@ -1,0 +1,17 @@
+.profile { padding: var(--sp-8) var(--sp-4); display: flex; justify-content: center; }
+
+.profile-card { background: white; border: 1px solid var(--border-color); border-radius: var(--radius-xl); padding: var(--sp-8); max-width: 500px; width: 100%; text-align: center; }
+
+.profile-avatar { width: 80px; height: 80px; border-radius: 50%; background: var(--primary); color: white; display: flex; align-items: center; justify-content: center; font-size: var(--fs-3xl); font-weight: 700; margin: 0 auto var(--sp-3); }
+
+.profile-card h1 { font-size: var(--fs-2xl); }
+.profile-card > p { color: var(--text-secondary); margin-bottom: var(--sp-6); }
+
+.profile-form { text-align: left; display: flex; flex-direction: column; gap: var(--sp-4); }
+
+.profile-form textarea { padding: var(--sp-3) var(--sp-4); border: 2px solid var(--border-color); border-radius: var(--radius-md); outline: none; resize: vertical; font-family: inherit; }
+.profile-form textarea:focus { border-color: var(--primary); }
+
+.profile-actions { display: flex; gap: var(--sp-3); flex-wrap: wrap; }
+
+.saved-msg { color: var(--success); font-size: var(--fs-sm); font-weight: 600; }

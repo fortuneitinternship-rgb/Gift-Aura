@@ -1,28 +1,27 @@
-import React from 'react'
-import SectionHeader from '../SectionHeader/SectionHeader'
-import ProductCard from '../ProductCard/ProductCard'
-import { getTrendingProducts } from '../../data/products'
-import './TrendingProducts.css'
+import SectionHeader from '../common/SectionHeader';
+import ProductCard from '../ProductCard/ProductCard';
+import { products } from '../../data/products';
+import './TrendingProducts.css';
 
-function TrendingProducts() {
-  const trending = getTrendingProducts()
+const TrendingProducts = () => {
+  const trending = products.filter((p) => p.badge === 'Trending' || p.badge === 'Bestseller').slice(0, 4);
 
   return (
-    <section className="ga-trending">
-      <div className="container-app">
+    <section className="section">
+      <div className="container">
         <SectionHeader
           title="🔥 Trending Now"
-          subtitle="What everyone's gifting this season"
+          subtitle="What everyone is gifting this season"
           viewAllLink="/products"
         />
-        <div className="ga-product-grid">
+        <div className="products-grid">
           {trending.map((product) => (
             <ProductCard key={product.id} product={product} />
           ))}
         </div>
       </div>
     </section>
-  )
-}
+  );
+};
 
-export default TrendingProducts
+export default TrendingProducts;

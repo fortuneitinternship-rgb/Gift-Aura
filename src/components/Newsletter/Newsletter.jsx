@@ -1,55 +1,41 @@
-import React, { useState } from 'react'
-import Button from '../Button/Button'
-import './Newsletter.css'
+import { useState } from 'react';
+import { validateEmail } from '../../utils/validation';
+import './Newsletter.css';
 
-function Newsletter() {
-  const [email, setEmail] = useState('')
-  const [subscribed, setSubscribed] = useState(false)
+const Newsletter = () => {
+  const [email, setEmail] = useState('');
+  const [status, setStatus] = useState(null);
 
   const handleSubmit = (e) => {
-    e.preventDefault()
-    if (!email) return
-    setSubscribed(true)
-    setEmail('')
-    setTimeout(() => setSubscribed(false), 3000)
-  }
+    e.preventDefault();
+    if (!validateEmail(email)) {
+      setStatus({ type: 'error', message: 'Please enter a valid email address.' });
+      return;
+    }
+    setStatus({ type: 'success', message: '🎉 Thank you for subscribing! Check your inbox.' });
+    setEmail('');
+    setTimeout(() => setStatus(null), 4000);
+  };
 
   return (
-    <section className="ga-newsletter">
-      <div className="container-app">
-        <div className="ga-newsletter-inner">
-          <div className="ga-newsletter-content">
-            <span className="ga-newsletter-emoji">💌</span>
-            <h2>Get Exclusive Gift Offers</h2>
-            <p>
-              Subscribe to our newsletter for the latest deals, gift ideas,
-              and seasonal collections. No spam, just joy.
-            </p>
-            <form className="ga-newsletter-form" onSubmit={handleSubmit}>
-              <input
-                type="email"
-                placeholder="Enter your email address"
-                value={email}
-                onChange={(e) => setEmail(e.target.value)}
-                required
-              />
-              <Button variant="primary" size="md" type="submit" icon="bi bi-send">
-                Subscribe
-              </Button>
-            </form>
-            {subscribed && (
-              <p className="ga-newsletter-success">
-                <i className="bi bi-check-circle-fill"></i> Thanks for subscribing!
-              </p>
-            )}
-          </div>
-          <div className="ga-newsletter-art">
-            <i className="bi bi-gift-fill"></i>
-          </div>
-        </div>
+    <section className="newsletter">
+      <div className="newsletter-inner">
+        <div className="newsletter-icon">💌</div>
+        <h2>Stay in the Loop</h2>
+        <p>Subscribe to get exclusive offers, gift ideas, and early access to new collections.</p>
+        <form className="newsletter-form" onSubmit={handleSubmit}>
+          <input
+            type="email"
+            placeholder="Enter your email address"
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
+          />
+          <button type="submit">Subscribe</button>
+        </form>
+        {status && <div className={`newsletter-msg ${status.type}`}>{status.message}</div>}
       </div>
     </section>
-  )
-}
+  );
+};
 
-export default Newsletter
+export default Newsletter;

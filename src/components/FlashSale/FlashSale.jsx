@@ -1,64 +1,55 @@
-import React, { useState, useEffect } from 'react'
-import { Link } from 'react-router-dom'
-import ProductCard from '../ProductCard/ProductCard'
-import Button from '../Button/Button'
-import { getFlashSaleProducts } from '../../data/products'
-import './FlashSale.css'
+import { useState, useEffect } from 'react';
+import { Link } from 'react-router-dom';
+import ProductCard from '../ProductCard/ProductCard';
+import { products } from '../../data/products';
+import './FlashSale.css';
 
-function FlashSale() {
-  // Countdown: 8 hours from mount
-  const [timeLeft, setTimeLeft] = useState(8 * 60 * 60)
+const FlashSale = () => {
+  const [timeLeft, setTimeLeft] = useState({ hours: 8, minutes: 45, seconds: 30 });
+  const flashProducts = products.filter((p) => p.originalPrice > p.price).slice(0, 4);
 
   useEffect(() => {
-    const interval = setInterval(() => {
-      setTimeLeft((prev) => (prev > 0 ? prev - 1 : 0))
-    }, 1000)
-    return () => clearInterval(interval)
-  }, [])
+    const timer = setInterval(() => {
+      setTimeLeft((prev) => {
+        let { hours, minutes, seconds } = prev;
+        if (seconds > 0) seconds--;
+        else if (minutes > 0) { minutes--; seconds = 59; }
+        else if (hours > 0) { hours--; minutes = 59; seconds = 59; }
+        return { hours, minutes, seconds };
+      });
+    }, 1000);
+    return () => clearInterval(timer);
+  }, []);
 
-  const hours = Math.floor(timeLeft / 3600)
-  const minutes = Math.floor((timeLeft % 3600) / 60)
-  const seconds = timeLeft % 60
-
-  const pad = (n) => String(n).padStart(2, '0')
-  const flashProducts = getFlashSaleProducts()
+  const pad = (n) => String(n).padStart(2, '0');
 
   return (
-    <section className="ga-flash container-app">
-      <div className="ga-flash-header">
-        <div>
-          <h2 className="ga-flash-title">
-            <i className="bi bi-lightning-charge-fill"></i> Flash Sale
-          </h2>
-          <p className="section-subtitle">Hurry! Limited time deals with huge discounts.</p>
-        </div>
-        <div className="ga-flash-timer">
-          <span className="ga-flash-timer-label">Ends in</span>
-          <div className="ga-flash-timer-digits">
-            <span className="ga-timer-box">{pad(hours)}</span>
-            <span className="ga-timer-sep">:</span>
-            <span className="ga-timer-box">{pad(minutes)}</span>
-            <span className="ga-timer-sep">:</span>
-            <span className="ga-timer-box">{pad(seconds)}</span>
+    <section className="flash-sale">
+      <div className="container">
+        <div className="flash-header">
+          <div>
+            <h2 className="flash-title">⚡ Flash Sale</h2>
+            <p className="flash-subtitle">Limited time offer — grab them before they're gone!</p>
+          </div>
+          <div className="flash-timer">
+            <div className="timer-block"><span>{pad(timeLeft.hours)}</span><small>Hrs</small></div>
+            <span className="timer-sep">:</span>
+            <div className="timer-block"><span>{pad(timeLeft.minutes)}</span><small>Min</small></div>
+            <span className="timer-sep">:</span>
+            <div className="timer-block"><span>{pad(timeLeft.seconds)}</span><small>Sec</small></div>
           </div>
         </div>
-      </div>
-
-      <div className="ga-flash-grid">
-        {flashProducts.map((product) => (
-          <ProductCard key={product.id} product={product} />
-        ))}
-      </div>
-
-      <div className="ga-flash-cta">
-        <Link to="/products">
-          <Button variant="secondary" size="md" icon="bi bi-arrow-right">
-            View All Deals
-          </Button>
-        </Link>
+        <div className="products-grid">
+          {flashProducts.map((product) => (
+            <ProductCard key={product.id} product={product} />
+          ))}
+        </div>
+        <div style={{ textAlign: 'center', marginTop: '2rem' }}>
+          <Link to="/products" className="flash-view-all">View All Deals →</Link>
+        </div>
       </div>
     </section>
-  )
-}
+  );
+};
 
-export default FlashSale
+export default FlashSale;

@@ -1,26 +1,27 @@
-import React from 'react'
-import SectionHeader from '../SectionHeader/SectionHeader'
-import ProductCard from '../ProductCard/ProductCard'
-import { getFeaturedProducts } from '../../data/products'
-import './FeaturedProducts.css'
+import SectionHeader from '../common/SectionHeader';
+import ProductCard from '../ProductCard/ProductCard';
+import { products } from '../../data/products';
+import './FeaturedProducts.css';
 
-function FeaturedProducts() {
-  const featured = getFeaturedProducts()
+const FeaturedProducts = () => {
+  const featured = products.filter((p) => p.rating >= 4.5).slice(0, 4);
 
   return (
-    <section className="ga-featured container-app">
-      <SectionHeader
-        title="Featured Gifts"
-        subtitle="Handpicked favorites our customers love"
-        viewAllLink="/products"
-      />
-      <div className="ga-product-grid">
-        {featured.map((product) => (
-          <ProductCard key={product.id} product={product} />
-        ))}
+    <section className="section" style={{ background: 'var(--bg-secondary)' }}>
+      <div className="container">
+        <SectionHeader
+          title="Featured Products"
+          subtitle="Handpicked gifts loved by our customers"
+          viewAllLink="/products"
+        />
+        <div className="products-grid">
+          {featured.map((product) => (
+            <ProductCard key={product.id} product={product} />
+          ))}
+        </div>
       </div>
     </section>
-  )
-}
+  );
+};
 
-export default FeaturedProducts
+export default FeaturedProducts;

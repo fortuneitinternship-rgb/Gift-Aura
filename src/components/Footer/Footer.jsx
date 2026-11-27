@@ -1,71 +1,68 @@
-import React from "react";
-import { Link } from "react-router-dom";
-import "./Footer.css";
+import { Link } from 'react-router-dom';
+import './Footer.css';
 
 const Footer = () => {
   return (
     <footer className="footer">
       <div className="footer-container">
-        {/* Brand */}
-        <div className="footer-col brand-col">
-          <h2 className="footer-logo">Gift Aura</h2>
-          <p className="footer-desc">
-            Curated, personalized gifts to make every moment memorable. Spread
-            joy with Gift Aura.
-          </p>
-          <div className="social-icons">
-            <a href="https://facebook.com" aria-label="Facebook" target="_blank" rel="noreferrer">📘</a>
-            <a href="https://instagram.com" aria-label="Instagram" target="_blank" rel="noreferrer">📸</a>
-            <a href="https://twitter.com" aria-label="Twitter" target="_blank" rel="noreferrer">🐦</a>
-            <a href="https://youtube.com" aria-label="YouTube" target="_blank" rel="noreferrer">▶️</a>
+        <div className="footer-grid">
+          <div className="footer-brand">
+            <Link to="/" className="footer-logo">
+              <span>🎁</span> Gift<span className="footer-accent">Aura</span>
+            </Link>
+            <p className="footer-desc">
+              Making every moment special with thoughtfully curated gifts for your loved ones.
+            </p>
+            <div className="footer-socials">
+              <a href="#" aria-label="Facebook">📘</a>
+              <a href="#" aria-label="Instagram">📸</a>
+              <a href="#" aria-label="Twitter">🐦</a>
+              <a href="#" aria-label="Pinterest">📌</a>
+            </div>
+          </div>
+
+          <div className="footer-col">
+            <h4>Shop</h4>
+            <ul>
+              <li><Link to="/products">All Products</Link></li>
+              <li><Link to="/products?category=birthday">Birthday Gifts</Link></li>
+              <li><Link to="/products?category=anniversary">Anniversary Gifts</Link></li>
+              <li><Link to="/products?category=valentine">Valentine Gifts</Link></li>
+              <li><Link to="/products?category=wedding">Wedding Gifts</Link></li>
+            </ul>
+          </div>
+
+          <div className="footer-col">
+            <h4>Support</h4>
+            <ul>
+              <li><a href="#">Contact Us</a></li>
+              <li><a href="#">FAQs</a></li>
+              <li><a href="#">Shipping Info</a></li>
+              <li><a href="#">Returns & Refunds</a></li>
+              <li><a href="#">Track Order</a></li>
+            </ul>
+          </div>
+
+          <div className="footer-col">
+            <h4>Company</h4>
+            <ul>
+              <li><a href="#">About Us</a></li>
+              <li><a href="#">Blog</a></li>
+              <li><a href="#">Careers</a></li>
+              <li><a href="#">Privacy Policy</a></li>
+              <li><a href="#">Terms & Conditions</a></li>
+            </ul>
           </div>
         </div>
 
-        {/* Quick Links */}
-        <div className="footer-col">
-          <h4>Quick Links</h4>
-          <ul>
-            <li><Link to="/">Home</Link></li>
-            <li><Link to="/shop">Shop</Link></li>
-            <li><Link to="/about">About Us</Link></li>
-            <li><Link to="/contact">Contact</Link></li>
-          </ul>
+        <div className="footer-bottom">
+          <p>© {new Date().getFullYear()} Gift-Aura. All rights reserved.</p>
+          <div className="footer-payments">
+            <span>💳</span>
+            <span>🏦</span>
+            <span>📱</span>
+          </div>
         </div>
-
-        {/* Categories */}
-        <div className="footer-col">
-          <h4>Categories</h4>
-          <ul>
-            <li><Link to="/category/home-decor">Home Decor</Link></li>
-            <li><Link to="/category/gift-hampers">Gift Hampers</Link></li>
-            <li><Link to="/category/personalized-gifts">Personalized Gifts</Link></li>
-            <li><Link to="/category/flowers">Flowers</Link></li>
-            <li><Link to="/category/accessories">Accessories</Link></li>
-          </ul>
-        </div>
-
-        {/* Customer Support */}
-        <div className="footer-col">
-          <h4>Customer Support</h4>
-          <ul>
-            <li><Link to="/faq">FAQ</Link></li>
-            <li><Link to="/shipping">Shipping & Returns</Link></li>
-            <li><Link to="/privacy">Privacy Policy</Link></li>
-            <li><Link to="/terms">Terms & Conditions</Link></li>
-          </ul>
-        </div>
-
-        {/* Contact */}
-        <div className="footer-col">
-          <h4>Contact Us</h4>
-          <p>📍 123 Gift Street, Delhi, India</p>
-          <p>📞 +91 98765 43210</p>
-          <p>✉️ support@giftaura.com</p>
-        </div>
-      </div>
-
-      <div className="footer-bottom">
-        <p>© {new Date().getFullYear()} Gift Aura. All rights reserved.</p>
       </div>
     </footer>
   );

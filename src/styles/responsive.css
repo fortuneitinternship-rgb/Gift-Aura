@@ -1,0 +1,26 @@
+@media (max-width: 1024px) {
+  :root {
+    --fs-4xl: 2rem;
+    --fs-3xl: 1.75rem;
+  }
+}
+
+@media (max-width: 768px) {
+  :root {
+    --fs-4xl: 1.75rem;
+    --fs-3xl: 1.5rem;
+    --fs-2xl: 1.25rem;
+    --sp-12: 2rem;
+    --sp-16: 3rem;
+  }
+  .section {
+    padding: var(--sp-8) 0;
+  }
+}
+
+@media (max-width: 480px) {
+  :root {
+    --fs-4xl: 1.5rem;
+    --fs-3xl: 1.25rem;
+  }
+}
